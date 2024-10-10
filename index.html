@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Video Player</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .video-container {
+            padding-top: 56%;
+            position: relative;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        iframe {
+            border: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        .controls {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        button, select {
+            padding: 5px 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Custom Video Player</h1>
+
+    <!-- Video Player -->
+    <div class="video-container">
+        <iframe src="https://player.vdocipher.com/v2/?otp=20160313versASE3235Pc1wfIiagjCuYezEHmlIjMTC5iWtq4cGwqOGkDBWreB1P&playbackInfo=eyJ2aWRlb0lkIjoiNmYxZDkzMDJhNDM2NDRjODg5OGVlMjlhNmJiMzE3MTQifQ==" allowFullScreen="true" allow="encrypted-media"></iframe>
+    </div>
+
+    <!-- Video Controls -->
+    <div class="controls">
+        <!-- Playback Speed -->
+        <label for="speed">Speed:</label>
+        <select id="speed" onchange="changeSpeed()">
+            <option value="0.5">0.5x</option>
+            <option value="1">1x (Normal)</option>
+            <option value="1.5">1.5x</option>
+            <option value="2">2x</option>
+        </select>
+
+        <!-- Skip Controls -->
+        <button onclick="skip(-10)">⏪ 10s Back</button>
+        <button onclick="skip(10)">⏩ 10s Forward</button>
+    </div>
+
+    <script>
+        const video = document.querySelector('iframe');
+
+        function changeSpeed() {
+            const speed = document.getElementById('speed').value;
+            // Since we are using an iframe, playback rate can't be changed directly.
+            alert('Playback speed adjustment is not supported for this embedded video.');
+        }
+
+        function skip(time) {
+            // Skipping does not apply to iframes directly. This can only be done on video tags.
+            alert('Skipping is not supported for this embedded video.');
+        }
+    </script>
+</body>
+</html>
